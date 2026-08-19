@@ -7,11 +7,10 @@
       "name": "fierce-coo-orchestrator",
       "displayName": "Fierce COO Orchestrator",
       "description": "COO Executive Assistant orchestrator for Fierce Staffing Services: a primary agent that routes requests to 9 specialist sub-agents, quality-checks deliverables, and improves the team through a weekly retro.",
-      "source": "github",
-      "owner": "rcarth",
-      "repo": "fierce-plugins",
-      "path": "plugins/fierce-coo-orchestrator",
-      "version": "3.6.0"
+      "version": "3.6.0",
+      "source": {
+        "path": "./plugins/fierce-coo-orchestrator"
+      }
     }
   ]
 }
