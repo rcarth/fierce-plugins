@@ -1,7 +1,7 @@
 {
   "name": "fierce-plugins",
   "displayName": "Fierce Staffing Plugins",
-  "description": "Internal plugin marketplace for Fierce Staffing Services and Consulting LLC. Add this marketplace once in Cowork, then use its Update button to pull new plugin versions without deleting and reinstalling.",
+  "description": "Internal plugin marketplace for Fierce Staffing Services and Consulting LLC. To install: Customize > Plugins > Browse > Personal > fierce-plugins. To update: remove the installed plugin, then reinstall it fresh from this same marketplace entry (Cowork does not support in-place updates for personal marketplaces yet).",
   "owner": {
     "name": "Ryan Carthage"
   },
@@ -10,7 +10,7 @@
       "name": "fierce-coo-orchestrator",
       "displayName": "Fierce COO Orchestrator",
       "description": "COO Executive Assistant orchestrator for Fierce Staffing Services: a primary agent that routes requests to 9 specialist sub-agents, quality-checks deliverables, and improves the team through a weekly retro.",
-      "version": "3.6.1",
+      "version": "3.6.2",
       "source": "./plugins/fierce-coo-orchestrator"
     }
   ]

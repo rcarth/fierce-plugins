@@ -1,6 +1,8 @@
 # Fierce COO Orchestrator
 
-> **3.6.1** (2026-08-19): No functional change. Version-only bump used as a test marker to verify that the "Update" button on the Fierce Plugins marketplace actually pulls a new version into a fresh Cowork session. If you're reading "3.6.1" as the active version in a NEW chat after clicking Update, the marketplace-based update path works end to end.
+> **3.6.2** (2026-08-19): Confirmed via a live test (3.6.1 bump) that Cowork desktop's per-plugin "Update" button does not work for personal git-marketplace plugins: stays permanently grayed out even after the marketplace repo has a newer version, a marketplace "Sync," and a full app restart. Matches Anthropic issue #65426 (closed "not planned"). The marketplace install path itself DOES work (installing fresh from the Directory pulls the real current version), only the in-place update is broken. New standing process: when a new version is pushed to this repo, remove the existing plugin in Cowork and reinstall fresh from the marketplace, instead of clicking Update. Logged in `memory/decisions.md`.
+>
+> **3.6.1** (2026-08-19): No functional change. Version-only bump used as a test marker for the above.
 >
 > **3.6.0** (2026-08-19): Corrected `procedures/fierce-internal-doc-template.md` against a real screenshot of the "ABCD & Company — Client Profile" document: the color palette was wrong (guessed blue instead of the real near-black navy `#14152B` + gold `#C9A961` + gray `#595959`), and banner text should be left-aligned, not centered. Also documented a build-technique fix: a banner's stacked lines must be separate table rows, not multiple paragraphs in one table cell, or they collapse onto one line on read-back. The JazzHR Candidate Status Guide is rebuilt against the corrected template. Logged in `memory/decisions.md`.
 >
