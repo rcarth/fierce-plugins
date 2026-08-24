@@ -1,6 +1,6 @@
 {
   "name": "fierce-coo-orchestrator",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "description": "COO Executive Assistant orchestrator for Fierce Staffing Services: a primary agent that routes requests to 10 specialist sub-agents, quality-checks deliverables, and improves the team through a weekly retro.",
   "author": {
     "name": "Ryan Carthage / Fierce Staffing Services and Consulting LLC"
