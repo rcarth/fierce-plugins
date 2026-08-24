@@ -1,5 +1,7 @@
 # Fierce COO Orchestrator
 
+> **3.7.0** (2026-08-19): Added the `fierce-business-development` sub-agent, owning pipeline visibility and prospect tracking before a deal becomes a signed event: lead/contact status, stale-lead (14+ days no next step) and stalled-proposal (10+ business days no response, event within 60 days) flags, win/loss capture, and outreach/proposal draft content handed to fierce-communications, never sent. A live check of Monday.com found no active BD pipeline: the only candidate board, "Contacts" (Client Services workspace, id 2608257609), is a dormant default template untouched since 2022 with 4 placeholder items and no deal-stage, value, source, or proposal-date columns. Rather than build against data that doesn't exist, the agent reports what the board actually has and recommends a schema upgrade (Stage / Estimated Value / Lead Source / Proposal Sent Date / Next Step) before Ryan approves changing the board. coo-orchestrator's routing table and escalation rules were updated accordingly. Logged in `memory/decisions.md`.
+>
 > **3.6.2** (2026-08-19): Confirmed via a live test (3.6.1 bump) that Cowork desktop's per-plugin "Update" button does not work for personal git-marketplace plugins: stays permanently grayed out even after the marketplace repo has a newer version, a marketplace "Sync," and a full app restart. Matches Anthropic issue #65426 (closed "not planned"). The marketplace install path itself DOES work (installing fresh from the Directory pulls the real current version), only the in-place update is broken. New standing process: when a new version is pushed to this repo, remove the existing plugin in Cowork and reinstall fresh from the marketplace, instead of clicking Update. Logged in `memory/decisions.md`.
 >
 > **3.6.1** (2026-08-19): No functional change. Version-only bump used as a test marker for the above.
@@ -19,7 +21,7 @@
 > **3.0.1** (2026-06-26): Bundled `procedures/google-doc-edit-SOP.md` and wired the Staffing Ops & Sync agent prompt to reference it, so the full Google Doc edit procedure ships inside an installed copy. All v3 lessons remain folded into the agent prompts.
 
 
-A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (COO) talks to one Executive Assistant orchestrator, which delegates to 9 specialist sub-agents, quality-checks their deliverables, and reports back in a single COMPLETED / FLAGS / RECOMMENDATIONS / STAGED format.
+A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (COO) talks to one Executive Assistant orchestrator, which delegates to 10 specialist sub-agents, quality-checks their deliverables, and reports back in a single COMPLETED / FLAGS / RECOMMENDATIONS / STAGED format.
 
 ## Components
 
@@ -43,6 +45,7 @@ A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (CO
 | `fierce-meeting-accountability` | Fireflies commitments vs Monday cards; surfaces UNTRACKED promises |
 | `fierce-payroll-compliance` | Gusto/JazzHR/When I Work reconciliation; report-only |
 | `fierce-finance` | Unbilled events, AR aging, payroll deadlines, estimates without contracts; report-only |
+| `fierce-business-development` | Prospect/lead pipeline visibility, stale-lead and stalled-proposal flags, win/loss capture, outreach/proposal draft content |
 
 ## Setup
 
