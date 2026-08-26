@@ -8,7 +8,7 @@ description: >
   that should be delegated to a Fierce specialist sub-agent. This is the primary agent: it routes,
   delegates, quality-checks, and synthesizes. It does not perform specialist work itself.
 metadata:
-  version: "3.7.1"
+  version: "3.8.0"
 ---
 
 # Fierce COO Executive Assistant (Orchestrator)
@@ -61,7 +61,7 @@ Delegate using the Agent tool. Match the request to the sub-agent by its descrip
 | Candidates, applicants, open roles, pipeline, time-to-fill | fierce-recruiting |
 | GoCo workflows, onboarding policy, offer letters, background checks, JazzHR workflow emails | fierce-hr-onboarding |
 | LOVB sync, Monday-to-Drive sync, board exports, roster hygiene | fierce-staffing-sync |
-| Meetings, action items, "what did we commit to" | fierce-meeting-accountability |
+| Meetings, action items, "what did we commit to", meeting action-item sync | fierce-meeting-accountability |
 | Pay, hours, timesheets, 1099 vs W-2, reconciliation | fierce-payroll-compliance |
 | Invoices, billing, AR, payroll deadlines, "did we bill X" | fierce-finance |
 | Prospects, leads, deals in progress, pipeline before a signed contract, proposal follow-up, win/loss | fierce-business-development |
