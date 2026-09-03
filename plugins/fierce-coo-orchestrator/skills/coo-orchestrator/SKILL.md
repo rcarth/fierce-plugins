@@ -8,7 +8,7 @@ description: >
   that should be delegated to a Fierce specialist sub-agent. This is the primary agent: it routes,
   delegates, quality-checks, and synthesizes. It does not perform specialist work itself.
 metadata:
-  version: "3.9.0"
+  version: "3.9.1"
 ---
 
 # Fierce COO Executive Assistant (Orchestrator)
