@@ -1,5 +1,7 @@
 # Fierce COO Orchestrator
 
+> **3.8.0** (2026-09-03): Added the `fierce-state-compliance` sub-agent, owning state and city-specific labor law research for event locations: minimum wage, overtime (including daily-overtime states like California), paid sick leave, meal/rest breaks, worker classification standards, and posting requirements. Report-only, same as fierce-payroll-compliance, but the two are distinct: fierce-payroll-compliance reconciles pay records against systems of record (Gusto/JazzHR/When I Work), fierce-state-compliance researches what the law actually requires in a given jurisdiction. Bundled `procedures/labor-law-knowledge-base.md` (Dallas TX and Philadelphia PA profiles to start) as the agent's maintained reference, seeded from Ryan's existing `Labor_Law_Knowledge_Base.md`. coo-orchestrator's routing table was updated accordingly. Logged in `memory/decisions.md`.
+>
 > **3.7.1** (2026-08-24): Flipped the Outlook access default (fierce-communications and fierce-intelligence) from Claude-in-Chrome-first to Microsoft 365 Graph MCP-first, for both interactive and scheduled use. Ryan asked to minimize token usage; the MCP tools (outlook_create_draft, outlook_email_search, etc.) do the same job as browser automation without screenshot overhead. Chrome extension is now the fallback only, used when the MCP is unavailable/erroring or a task genuinely needs the live Outlook web session. Supersedes the 2026-08-19 rule (Chrome-first when a device is connected). Logged in `memory/decisions.md`.
 >
 > **3.7.0** (2026-08-19): Added the `fierce-business-development` sub-agent, owning pipeline visibility and prospect tracking before a deal becomes a signed event: lead/contact status, stale-lead (14+ days no next step) and stalled-proposal (10+ business days no response, event within 60 days) flags, win/loss capture, and outreach/proposal draft content handed to fierce-communications, never sent. A live check of Monday.com found no active BD pipeline: the only candidate board, "Contacts" (Client Services workspace, id 2608257609), is a dormant default template untouched since 2022 with 4 placeholder items and no deal-stage, value, source, or proposal-date columns. Rather than build against data that doesn't exist, the agent reports what the board actually has and recommends a schema upgrade (Stage / Estimated Value / Lead Source / Proposal Sent Date / Next Step) before Ryan approves changing the board. coo-orchestrator's routing table and escalation rules were updated accordingly. Logged in `memory/decisions.md`.
@@ -23,7 +25,7 @@
 > **3.0.1** (2026-06-26): Bundled `procedures/google-doc-edit-SOP.md` and wired the Staffing Ops & Sync agent prompt to reference it, so the full Google Doc edit procedure ships inside an installed copy. All v3 lessons remain folded into the agent prompts.
 
 
-A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (COO) talks to one Executive Assistant orchestrator, which delegates to 10 specialist sub-agents, quality-checks their deliverables, and reports back in a single COMPLETED / FLAGS / RECOMMENDATIONS / STAGED format.
+A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (COO) talks to one Executive Assistant orchestrator, which delegates to 11 specialist sub-agents, quality-checks their deliverables, and reports back in a single COMPLETED / FLAGS / RECOMMENDATIONS / STAGED format.
 
 ## Components
 
@@ -46,6 +48,7 @@ A primary-agent system for Fierce Staffing Services and Consulting LLC. Ryan (CO
 | `fierce-staffing-sync` | LOVB Monday-to-Drive sync and roster hygiene, with anomaly flags |
 | `fierce-meeting-accountability` | Fireflies commitments vs Monday cards; surfaces UNTRACKED promises |
 | `fierce-payroll-compliance` | Gusto/JazzHR/When I Work reconciliation; report-only |
+| `fierce-state-compliance` | State/city labor law research (wage, overtime, sick leave, breaks, classification, posting) per event jurisdiction; maintains the Labor Law Knowledge Base; report-only |
 | `fierce-finance` | Unbilled events, AR aging, payroll deadlines, estimates without contracts; report-only |
 | `fierce-business-development` | Prospect/lead pipeline visibility, stale-lead and stalled-proposal flags, win/loss capture, outreach/proposal draft content |
 
@@ -64,7 +67,7 @@ Talk to the orchestrator naturally: "We signed the Nike event", "run morning cof
 ## Guardrails
 
 - Communications: drafts only, never sends
-- Payroll & Compliance and Finance: report-only, never modify financial data
+- Payroll & Compliance, State Compliance, and Finance: report-only, never modify financial data or classification/pay policy
 - Escalations fire immediately for money already moved, events within 14 days understaffed, client deadlines at risk, blocked pipelines, unbilled completed events
 
 ## Claude Code Transfer

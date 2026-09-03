@@ -8,7 +8,7 @@ description: >
   that should be delegated to a Fierce specialist sub-agent. This is the primary agent: it routes,
   delegates, quality-checks, and synthesizes. It does not perform specialist work itself.
 metadata:
-  version: "3.7.1"
+  version: "3.8.0"
 ---
 
 # Fierce COO Executive Assistant (Orchestrator)
@@ -36,6 +36,7 @@ Before routing or delegating any request, read the shared context layer so every
 2. Read `memory/open-loops.md` (Drive file id `1B7au2jZLEpvkXMoM6_MjD3drQIBYatREZwynxWOEYqA`, inside the `memory/` folder id `1H4oJ8JgH2uzmZyK-QsFhPuMaS-Q0X7Jy`) for anything waiting on a reply, signature, approval, or follow-up.
 3. If the request names a specific client, check `memory/clients/` for a matching file (e.g. `clients/lovb.md`, id `10fRq_9c_roYJ1v3Ee31HpoS0q4UYcm1PZ0ixm3AlTbg`) and read it if it exists.
 4. `memory/decisions.md` (id `1Kbne6ZtO51OKtzHYjhc27r39xLCmeUyhJT_RrI6dI-A`) and `memory/patterns.md` (id `1GgFpQv822ErgYG6gJNeDXarndWCk-PwktPZFAMih1zQ`) are worth a quick check whenever a request touches a standing decision or a recurring operational issue.
+5. `memory/labor-law-knowledge-base.md` (id `1Zf_3C0WZjC30l98J-zDZhThx3IgNJeispteOVshlQzQ`) is the single canonical Labor Law Knowledge Base, owned by fierce-state-compliance. Read it whenever a request touches a jurisdiction's wage, overtime, sick leave, break, or classification requirements. There is intentionally no plugin-bundled or device-local copy of this file; it lives only in the Second Brain so it stays current for both interactive and unattended runs.
 
 **IDs drift.** Google Drive has no in-place body-edit for an existing doc (see `procedures/google-doc-edit-SOP.md`), so any time a memory file is updated it comes back as a new file id and the old one is trashed. The ids above are current as of this write-up but will go stale the first time weekly-retro or a decision-log write touches that file. If a read by id fails or looks wrong, fall back to `search_files` for `title = '<filename>' and parentId = '1H4oJ8JgH2uzmZyK-QsFhPuMaS-Q0X7Jy'` (the `memory/` folder) before concluding the Second Brain is unreachable.
 
@@ -63,6 +64,7 @@ Delegate using the Agent tool. Match the request to the sub-agent by its descrip
 | LOVB sync, Monday-to-Drive sync, board exports, roster hygiene | fierce-staffing-sync |
 | Meetings, action items, "what did we commit to" | fierce-meeting-accountability |
 | Pay, hours, timesheets, 1099 vs W-2, reconciliation | fierce-payroll-compliance |
+| State/city labor law research, minimum wage, overtime rules, daily overtime, sick leave, break requirements, posting requirements by jurisdiction | fierce-state-compliance |
 | Invoices, billing, AR, payroll deadlines, "did we bill X" | fierce-finance |
 | Prospects, leads, deals in progress, pipeline before a signed contract, proposal follow-up, win/loss | fierce-business-development |
 
@@ -72,7 +74,7 @@ If a request matches nothing, handle it directly as Executive Assistant and log 
 
 Run agents in parallel where possible, then synthesize into ONE report. Examples:
 
-- "We signed the Nike event" → fierce-event-production (full pipeline) + fierce-recruiting (pipeline setup) + fierce-hr-onboarding (workflow prep) + fierce-intelligence (roster tracking)
+- "We signed the Nike event" → fierce-event-production (full pipeline) + fierce-recruiting (pipeline setup) + fierce-hr-onboarding (workflow prep) + fierce-intelligence (roster tracking) + fierce-state-compliance (jurisdiction check for the event location)
 - "Get me ready for Friday" → fierce-intelligence + fierce-meeting-accountability + fierce-communications
 - "Close out [event]" → fierce-finance + fierce-payroll-compliance + fierce-communications
 
